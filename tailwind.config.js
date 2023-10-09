@@ -4,7 +4,12 @@ module.exports = {
   purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        backdrop: "#121212",
+        active: "#282828",
+      },
+    },
   },
   plugins: [],
 };
