@@ -1,5 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import HomeIcon from "@mui/icons-material/Home";
+import FormatListNumberedIcon from "@mui/icons-material/FormatListNumbered";
 
 function Menu() {
   return (
@@ -12,8 +14,10 @@ function Menu() {
             to={"/#"}
             className="h-10 flex gap-x-4 items-center text-sm font-semibold text-link rounded hover:text-white px-4"
           >
-            <span className="transition-all">{/* home icon */}</span>
-            Ana sayfa
+            <span className="transition-all">
+              <HomeIcon />
+            </span>
+            Ana Sayfa
           </NavLink>
         </li>
         <li>
@@ -23,8 +27,10 @@ function Menu() {
             to={"/todo"}
             className="h-10 flex gap-x-4 items-center text-sm font-semibold text-link rounded hover:text-white px-4"
           >
-            <span className="transition-all">{/* todo icon */}</span>
-            Things To Do
+            <span className="transition-all">
+              <FormatListNumberedIcon />
+            </span>
+            Yapılacaklar Listesi
           </NavLink>
         </li>
       </ul>
