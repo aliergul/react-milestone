@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import FormatListNumberedIcon from "@mui/icons-material/FormatListNumbered";
-
+import i18n from "../../i18n/i18n";
 function Menu() {
   return (
     <nav className="px-2">
@@ -17,7 +17,7 @@ function Menu() {
             <span className="transition-all">
               <HomeIcon />
             </span>
-            Ana Sayfa
+            {i18n.t("home_page")}
           </NavLink>
         </li>
         <li>
@@ -30,7 +30,7 @@ function Menu() {
             <span className="transition-all">
               <FormatListNumberedIcon />
             </span>
-            Yapılacaklar Listesi
+            {i18n.t("to_do_list")}
           </NavLink>
         </li>
       </ul>

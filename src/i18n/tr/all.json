@@ -1,0 +1,11 @@
+{
+  "home_page": "Ana Sayfa",
+  "to_do_list": "Yapılacaklar Listesi",
+
+  "tooltips": {
+    "github": "Projenin kaynak kodlarına ve proje sahibinin Git profiline buradan ulaşabilirsiniz.",
+    "linkedin": "Proje sahibinin Linkedin profiline buradan ulaşabilirsiniz.",
+    "twitter": "Proje sahibinin X profiline buradan ulaşabilirsiniz.",
+    "instagram": "Proje sahibinin Instagram profiline buradan ulaşabilirsiniz."
+  }
+}
