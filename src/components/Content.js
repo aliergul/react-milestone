@@ -4,6 +4,7 @@ import { Switch } from "react-router-dom";
 import { Route } from "react-router-dom";
 import Todo from "../pages/Todo/Todo";
 import Home from "../pages/Home/Home";
+import Weather from "../pages/Weather/Weather";
 
 function Content() {
   return (
@@ -18,6 +19,9 @@ function Content() {
         <Switch>
           <Route path="/todo">
             <Todo />
+          </Route>
+          <Route path="/weather">
+            <Weather />
           </Route>
         </Switch>
       </div>

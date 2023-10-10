@@ -1,7 +1,9 @@
 {
-  "home_page": "Ana Sayfa",
-  "to_do_list": "Yapılacaklar Listesi",
-
+  "pages": {
+    "home_page": "Ana Sayfa",
+    "to_do_list": "Yapılacaklar Listesi",
+    "weather": "Hava Durumu"
+  },
   "tooltips": {
     "github": "Projenin kaynak kodlarına ve proje sahibinin Git profiline buradan ulaşabilirsiniz.",
     "linkedin": "Proje sahibinin Linkedin profiline buradan ulaşabilirsiniz.",

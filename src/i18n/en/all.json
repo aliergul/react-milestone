@@ -1,6 +1,9 @@
 {
-  "home_page": "Home Page",
-  "to_do_list": "To Do List",
+  "pages": {
+    "home_page": "Home Page",
+    "to_do_list": "To Do List",
+    "weather": "Weather Condition"
+  },
 
   "tooltips": {
     "github": "You can access the source codes of the project and the Git profile of the project owner here.",
