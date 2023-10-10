@@ -7,5 +7,10 @@
     "linkedin": "Proje sahibinin Linkedin profiline buradan ulaşabilirsiniz.",
     "twitter": "Proje sahibinin X profiline buradan ulaşabilirsiniz.",
     "instagram": "Proje sahibinin Instagram profiline buradan ulaşabilirsiniz."
+  },
+  "language": {
+    "tr": "Türkçe",
+    "en": "İngilizce",
+    "change": "Dil Tercihi"
   }
 }

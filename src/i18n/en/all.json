@@ -1,3 +1,16 @@
 {
-  "home_page": "Home Page"
+  "home_page": "Home Page",
+  "to_do_list": "To Do List",
+
+  "tooltips": {
+    "github": "You can access the source codes of the project and the Git profile of the project owner here.",
+    "linkedin": "You can access the Linkedin profile of the project owner here.",
+    "twitter": "You can access the project owner's X profile here.",
+    "instagram": "You can access the Instagram profile of the project owner here."
+  },
+  "language": {
+    "tr": "Turkish",
+    "en": "English",
+    "change": "Language Change"
+  }
 }

@@ -8,6 +8,7 @@ module.exports = {
       colors: {
         backdrop: "#121212",
         active: "#282828",
+        orange: "#D17F14",
       },
     },
   },

@@ -17,7 +17,7 @@ i18next.use(initReactI18next).init({
     // React already does escaping
     escapeValue: false,
   },
-  fallbackLng: "tr",
+  fallbackLng: ["tr"],
   lng: lang, // 'en' | 'es'
   // Using simple hardcoded resources for simple example
   resources: {
