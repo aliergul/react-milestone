@@ -9,6 +9,7 @@ module.exports = {
         backdrop: "#121212",
         active: "#282828",
         orange: "#D17F14",
+        weather: "#456104",
       },
     },
   },
