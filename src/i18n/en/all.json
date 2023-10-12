@@ -4,23 +4,41 @@
     "to_do_list": "To Do List",
     "weather": "Weather Condition"
   },
-
+  "language": {
+    "tr": "Turkish",
+    "en": "English",
+    "change": "Language Change"
+  },
   "tooltips": {
     "github": "You can access the source codes of the project and the Git profile of the project owner here.",
     "linkedin": "You can access the Linkedin profile of the project owner here.",
     "twitter": "You can access the project owner's X profile here.",
     "instagram": "You can access the Instagram profile of the project owner here."
   },
-  "language": {
-    "tr": "Turkish",
-    "en": "English",
-    "change": "Language Change"
-  },
+  "weather_search": "Search For City",
   "current_weather": {
-    "details": "Details",
-    "feels_like": "Feels Like",
-    "wind": "Wind",
-    "humidity": "Humidity",
-    "pressure": "Pressure"
+    "details": "Details:",
+    "feels_like": "Feels Like:",
+    "wind": "Wind:",
+    "humidity": "Humidity:",
+    "pressure": "Pressure:"
+  },
+  "forecast_weather": {
+    "feels_like": "Feels Like:",
+    "humidity": "Humidity:",
+    "pressure": "Pressure:",
+    "clouds": "Clouds:",
+    "wind_speed": "Wind Speed:",
+    "sea_level": "Sea Level:",
+    "daily": "Daily Forecast"
+  },
+  "days": {
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday"
   }
 }

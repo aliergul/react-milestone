@@ -4,22 +4,41 @@
     "to_do_list": "Yapılacaklar Listesi",
     "weather": "Hava Durumu"
   },
+  "language": {
+    "tr": "Türkçe",
+    "en": "İngilizce",
+    "change": "Dil Tercihi"
+  },
   "tooltips": {
     "github": "Projenin kaynak kodlarına ve proje sahibinin Git profiline buradan ulaşabilirsiniz.",
     "linkedin": "Proje sahibinin Linkedin profiline buradan ulaşabilirsiniz.",
     "twitter": "Proje sahibinin X profiline buradan ulaşabilirsiniz.",
     "instagram": "Proje sahibinin Instagram profiline buradan ulaşabilirsiniz."
   },
-  "language": {
-    "tr": "Türkçe",
-    "en": "İngilizce",
-    "change": "Dil Tercihi"
-  },
+  "weather_search": "Şehir Ara",
   "current_weather": {
     "details": "Detaylar",
-    "feels_like": "Hissedilen",
-    "wind": "Rüzgar",
-    "humidity": "Nem Oranı",
-    "pressure": "Basınç"
+    "feels_like": "Hissedilen:",
+    "wind": "Rüzgar:",
+    "humidity": "Nem Oranı:",
+    "pressure": "Basınç:"
+  },
+  "forecast_weather": {
+    "feels_like": "Hissedilen:",
+    "humidity": "Nem Oranı:",
+    "pressure": "Basınç:",
+    "clouds": "Bulut:",
+    "wind_speed": "Rüzgar Hızı:",
+    "sea_level": "Deniz Seviyesi:",
+    "daily": "Günlük Tahminler"
+  },
+  "days": {
+    "monday": "Pazartesi",
+    "tuesday": "Salı",
+    "wednesday": "Çarşamba",
+    "thursday": "Perşembe",
+    "friday": "Cuma",
+    "saturday": "Cumartesi",
+    "sunday": "Pazar"
   }
 }

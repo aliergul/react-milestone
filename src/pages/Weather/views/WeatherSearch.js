@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
-import { GEO_API_URL, geoApiOptions } from "./WeatherApi";
+import { GEO_API_URL, geoApiOptions } from "../WeatherApi";
+import i18n from "../../../i18n/i18n";
 
 const WeatherSearch = ({ onSearchChange }) => {
   const [search, setSearch] = useState(null);
@@ -41,7 +42,7 @@ const WeatherSearch = ({ onSearchChange }) => {
 
   return (
     <AsyncPaginate
-      placeholder="search for city"
+      placeholder={i18n.t("weather_search")}
       debounceTimeout={600}
       value={search}
       onChange={handleChange}
