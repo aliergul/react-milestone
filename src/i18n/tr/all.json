@@ -14,5 +14,12 @@
     "tr": "Türkçe",
     "en": "İngilizce",
     "change": "Dil Tercihi"
+  },
+  "current_weather": {
+    "details": "Detaylar",
+    "feels_like": "Hissedilen",
+    "wind": "Rüzgar",
+    "humidity": "Nem Oranı",
+    "pressure": "Basınç"
   }
 }

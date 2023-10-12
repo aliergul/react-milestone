@@ -1,3 +1,5 @@
+import i18n from "../../i18n/i18n";
+
 const WeatherCurrent = ({ data }) => {
   return (
     <div
@@ -11,35 +13,59 @@ const WeatherCurrent = ({ data }) => {
       <div className="flex justify-between items-center">
         <div>
           <p className="font-semibold text-lg m-0 leading-none tracking-wider">
-            Ankara
+            {data.city}
           </p>
-          <p className="font-light text-sm leading-none m-0">Sunny</p>
+          <p className="font-light text-sm leading-none m-0">
+            {data.weather[0].description}
+          </p>
         </div>
-        <img alt="weather" className="w-28" src="assets/01d.png" />
+        <img
+          alt="weather"
+          className="w-28"
+          src={`assets/${data.weather[0].icon}.png`}
+        />
       </div>
       <div className="flex justify-between items-center">
         <p className="font-semibold text-4xl w-auto tracking-tighter my-2">
-          19°C
+          {Math.round(data.main.temp)}°C
         </p>
         <div className="w-full pl-5">
           <div className="flex justify-between">
-            <span className="parameter-label">details</span>
+            <span className="font-semibold">
+              {i18n.t("current_weather:details")}
+            </span>
           </div>
           <div className="flex justify-between">
-            <span className="text-left font-normal text-xs">feels like</span>
-            <span className="text-right font-semibold text-xs">19°C</span>
+            <span className="text-left font-normal text-xs">
+              {i18n.t("current_weather:details")}
+            </span>
+            <span className="text-right font-semibold text-xs">
+              {Math.round(data.main.feels_like)}°C
+            </span>
           </div>
           <div className="flex justify-between">
-            <span className="text-left font-normal text-xs">wind</span>
-            <span className="text-right font-semibold text-xs">2m/s</span>
+            <span className="text-left font-normal text-xs">
+              {i18n.t("current_weather:wind")}
+            </span>
+            <span className="text-right font-semibold text-xs">
+              {data.wind.speed} m/s
+            </span>
           </div>
           <div className="flex justify-between">
-            <span className="text-left font-normal text-xs">humidity</span>
-            <span className="text-right font-semibold text-xs">15 %</span>
+            <span className="text-left font-normal text-xs">
+              {i18n.t("current_weather:humidity")}
+            </span>
+            <span className="text-right font-semibold text-xs">
+              {data.main.humidity}%
+            </span>
           </div>
           <div className="flex justify-between">
-            <span className="text-left font-normal text-xs">pressure</span>
-            <span className="text-right font-semibold text-xs">15 hPa</span>
+            <span className="text-left font-normal text-xs">
+              {i18n.t("current_weather:pressure")}
+            </span>
+            <span className="text-right font-semibold text-xs">
+              {data.main.pressure}hPa
+            </span>
           </div>
         </div>
       </div>

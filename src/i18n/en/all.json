@@ -15,5 +15,12 @@
     "tr": "Turkish",
     "en": "English",
     "change": "Language Change"
+  },
+  "current_weather": {
+    "details": "Details",
+    "feels_like": "Feels Like",
+    "wind": "Wind",
+    "humidity": "Humidity",
+    "pressure": "Pressure"
   }
 }
