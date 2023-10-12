@@ -45,6 +45,10 @@ const WeatherSearch = ({ onSearchChange }) => {
       backgroundColor: state.isFocused ? "#D17F14" : "white", // Arka plan rengini özelleştirin
       color: state.isFocused ? "white" : "black", // Metin rengini özelleştirin
     }),
+    placeholder: (provided) => ({
+      ...provided,
+      color: "gray", // Placeholder rengini istediğiniz renge ayarlayın
+    }),
   };
   return (
     <AsyncPaginate
