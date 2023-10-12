@@ -39,7 +39,13 @@ const WeatherSearch = ({ onSearchChange }) => {
     setSearch(searchData);
     onSearchChange(searchData);
   };
-
+  const customStyles = {
+    option: (provided, state) => ({
+      ...provided,
+      backgroundColor: state.isFocused ? "#D17F14" : "white", // Arka plan rengini özelleştirin
+      color: state.isFocused ? "white" : "black", // Metin rengini özelleştirin
+    }),
+  };
   return (
     <AsyncPaginate
       placeholder={i18n.t("weather_search")}
@@ -47,6 +53,7 @@ const WeatherSearch = ({ onSearchChange }) => {
       value={search}
       onChange={handleChange}
       loadOptions={loadOptions}
+      styles={customStyles}
     />
   );
 };

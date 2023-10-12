@@ -3,6 +3,7 @@ import WeatherSearch from "./views/WeatherSearch";
 import WeatherCurrent from "./views/WeatherCurrent";
 import WeatherForecast from "./views/WeatherForecast";
 import { WEATHER_API_KEY, WEATHER_API_URL } from "./WeatherApi";
+import i18n from "../../i18n/i18n";
 
 function Weather() {
   const [currentWeather, setCurrentWeather] = useState(null);
@@ -29,7 +30,10 @@ function Weather() {
       .catch((err) => console.log(err));
   };
   return (
-    <div className="max-w-3xl m-5 mx-auto rounded-md">
+    <div className="max-w-3xl m-5 mx-auto rounded-md grid gap-5">
+      <label className="text-2xl font-semibold flex items-center justify-center">
+        {i18n.t("pages:weather")}
+      </label>
       <WeatherSearch onSearchChange={handleSearchChange} />
       {currentWeather && <WeatherCurrent data={currentWeather} />}
       {forecast && <WeatherForecast data={forecast} />}

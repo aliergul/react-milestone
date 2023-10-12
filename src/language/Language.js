@@ -38,7 +38,7 @@ function Language() {
                 {({ active }) => (
                   <button
                     className={`${
-                      active && "bg-orange "
+                      active && "bg-main "
                     } text-white group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                     onClick={() => changeLanguage("tr")}
                   >
@@ -56,7 +56,7 @@ function Language() {
                 {({ active }) => (
                   <button
                     className={`${
-                      active && "bg-orange "
+                      active && "bg-main "
                     } text-white group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                     onClick={() => changeLanguage("en")}
                   >

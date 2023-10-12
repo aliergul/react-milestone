@@ -39,13 +39,13 @@ const WeatherForecast = ({ data }) => {
                     className="w-10 h-10"
                     src={`assets/${item.weather[0].icon}.png`}
                   ></img>
-                  <label className="cursor-default text-gray-800 flex-1 font-semibold ml-4">
+                  <label className="cursor-default text-gray-900 flex-1 font-semibold ml-4">
                     {forecastDays[index]}
                   </label>
                   <label className="cursor-default flex-1 mr-4 text-right text-gray-800">
                     {item.weather[0].description}
                   </label>
-                  <label className="text-gray-500">
+                  <label className="text-gray-600">
                     {Math.round(item.main.temp_min)}°C /{" "}
                     {Math.round(item.main.temp_max)}°C
                   </label>
@@ -53,46 +53,46 @@ const WeatherForecast = ({ data }) => {
               </AccordionItemButton>
             </AccordionItemHeading>
             <AccordionItemPanel>
-              <div className="grid gap-x-4 md:gap-x-6 grid-cols-2 p-2 md:p-4">
+              <div className="grid gap-x-4 md:gap-x-6 grid-cols-2 p-2 md:p-4 bg-black">
                 <div className="flex items-center h-8 justify-between">
-                  <label className="text-gray-500">
+                  <label className="text-gray-300 font-medium">
                     {i18n.t("forecast_weather:pressure")}
                   </label>
-                  <label className="text-gray-800">
+                  <label className="text-gray-400">
                     {item.main.pressure} hPa
                   </label>
                 </div>
                 <div className="flex items-center h-8 justify-between">
-                  <label className="text-gray-500">
+                  <label className="text-gray-300 font-medium">
                     {i18n.t("forecast_weather:humidity")}
                   </label>
-                  <label className="text-gray-800">{item.main.humidity}</label>
+                  <label className="text-gray-400">{item.main.humidity}</label>
                 </div>
                 <div className="flex items-center h-8 justify-between">
-                  <label className="text-gray-500">
+                  <label className="text-gray-300 font-medium">
                     {i18n.t("forecast_weather:clouds")}
                   </label>
-                  <label className="text-gray-800">{item.clouds.all}</label>
+                  <label className="text-gray-400">{item.clouds.all}</label>
                 </div>
                 <div className="flex items-center h-8 justify-between">
-                  <label className="text-gray-500">
+                  <label className="text-gray-300 font-medium">
                     {i18n.t("forecast_weather:wind_speed")}
                   </label>
-                  <label className="text-gray-800">{item.wind.speed} m/s</label>
+                  <label className="text-gray-400">{item.wind.speed} m/s</label>
                 </div>
                 <div className="flex items-center h-8 justify-between">
-                  <label className="text-gray-500">
+                  <label className="text-gray-300 font-medium">
                     {i18n.t("forecast_weather:sea_level")}
                   </label>
-                  <label className="text-gray-800">
+                  <label className="text-gray-400">
                     {item.main.sea_level}m
                   </label>
                 </div>
                 <div className="flex items-center h-8 justify-between">
-                  <label className="text-gray-500">
+                  <label className="text-gray-300 font-medium">
                     {i18n.t("forecast_weather:feels_like")}
                   </label>
-                  <label className="text-gray-800">
+                  <label className="text-gray-400">
                     {Math.round(item.main.feels_like)}
                   </label>
                 </div>

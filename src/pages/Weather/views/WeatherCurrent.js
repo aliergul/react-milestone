@@ -3,7 +3,7 @@ import i18n from "../../../i18n/i18n";
 const WeatherCurrent = ({ data }) => {
   return (
     <div
-      className="w-80 rounded-lg bg-active"
+      className="w-80 rounded-lg bg-black"
       style={{
         boxShadow: "10px -2px 20px 2px rgb(0 0 0/30%)",
         margin: "20px auto 0 auto",
