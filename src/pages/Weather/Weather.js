@@ -27,7 +27,7 @@ function Weather() {
         setCurrentWeather({ city: searchData.label, ...weatherResponse });
         setForecast({ city: searchData.label, ...forecastResponse });
       })
-      .catch((err) => console.log(err));
+      .catch(() => {});
   };
   return (
     <div className="max-w-3xl m-5 mx-auto rounded-md grid gap-5">

@@ -30,10 +30,9 @@ const ListTodo = () => {
   };
   const handleMarkTodo = (id) => {
     setSelectedId(id);
-    dispatch(markToDo(selectedTodo));
+    dispatch(markToDo({ id }));
   };
   const selectedTodo = todoList.find((todo) => todo.id === selectedId);
-  console.log("selected todo: ", selectedTodo);
   return (
     <div className="text-black">
       {editModalOpen && selectedTodo && (
@@ -52,10 +51,14 @@ const ListTodo = () => {
       }
 
       <ul>
-        {todoList.map(({ id, content }) => {
+        {todoList.map(({ id, content, status }) => {
           return (
             <li key={id}>
-              <span>{content}</span>
+              {status === true ? (
+                <span className="line-through">{content}</span>
+              ) : (
+                <span>{content}</span>
+              )}
               <span
                 className="cursor-pointer"
                 onClick={() => handleEditTask(id)}

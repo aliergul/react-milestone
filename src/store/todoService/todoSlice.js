@@ -3,10 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const todoSlice = createSlice({
   name: "toDo",
   initialState: {
-    todoList: [
-      { id: 1, content: "Hello World!", status: 0 }, //incompleted
-      { id: 2, content: "Hello Ankara!", status: 1 }, //completed
-    ],
+    todoList: [],
   },
   reducers: {
     addToDo: (state, action) => {
@@ -27,11 +24,16 @@ export const todoSlice = createSlice({
         return task.id === action.payload.id ? action.payload : task;
       });
     },
-    markToDo: (state) => {
-      let { todoList } = state;
-      state.todoList = todoList.map((task) => {
-        return { ...task, status: !task.status };
+    markToDo: (state, action) => {
+      const { id } = action.payload;
+      const updatedList = state.todoList.map((task) => {
+        if (task.id === id) {
+          return { ...task, status: !task.status };
+        } else {
+          return task;
+        }
       });
+      state.todoList = updatedList;
     },
   },
 });
