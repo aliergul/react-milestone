@@ -16,7 +16,6 @@ function DeleteModal({ isOpen, setIsOpen, selectedTodo }) {
       setIsOpen(false);
     }
   };
-  console.log("delete selected todo: ", selectedTodo);
   return (
     <Dialog
       open={isOpen}

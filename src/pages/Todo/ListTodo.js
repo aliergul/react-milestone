@@ -1,11 +1,14 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditNoteIcon from "@mui/icons-material/EditNote";
 import EditModal from "./TodoModals/EditModal";
 import React, { useState } from "react";
 import DeleteModal from "./TodoModals/DeleteModal";
+import PlaylistAddCheckIcon from "@mui/icons-material/PlaylistAddCheck";
+import { markToDo } from "../../store/todoService/todoSlice";
 
 const ListTodo = () => {
+  const dispatch = useDispatch();
   const { todoList } = useSelector((state) => state.toDo);
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
@@ -25,9 +28,12 @@ const ListTodo = () => {
   const closeDeleteModal = () => {
     setDeleteModalOpen(false);
   };
-
+  const handleMarkTodo = (id) => {
+    setSelectedId(id);
+    dispatch(markToDo(selectedTodo));
+  };
   const selectedTodo = todoList.find((todo) => todo.id === selectedId);
-  console.log("list selected todo: ", selectedTodo);
+  console.log("selected todo: ", selectedTodo);
   return (
     <div className="text-black">
       {editModalOpen && selectedTodo && (
@@ -44,6 +50,7 @@ const ListTodo = () => {
           selectedTodo={selectedTodo}
         />
       }
+
       <ul>
         {todoList.map(({ id, content }) => {
           return (
@@ -57,6 +64,12 @@ const ListTodo = () => {
               </span>
               <span className="cursor-pointer" onClick={() => deleteModal(id)}>
                 <DeleteIcon />
+              </span>
+              <span
+                className="cursor-pointer"
+                onClick={() => handleMarkTodo(id)}
+              >
+                <PlaylistAddCheckIcon />
               </span>
             </li>
           );
