@@ -31,7 +31,7 @@ function Weather() {
   };
   return (
     <div className="max-w-3xl m-5 mx-auto rounded-md grid gap-5">
-      <label className="text-2xl font-semibold flex items-center justify-center">
+      <label className="text-3xl font-bold flex items-center justify-center text-title">
         {i18n.t("pages:weather")}
       </label>
       <WeatherSearch onSearchChange={handleSearchChange} />

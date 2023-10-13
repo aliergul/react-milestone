@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import FormatListNumberedIcon from "@mui/icons-material/FormatListNumbered";
 import ThermostatIcon from "@mui/icons-material/Thermostat";
+import ColorLensIcon from "@mui/icons-material/ColorLens";
 import i18n from "../../i18n/i18n";
 function Menu() {
   return (
@@ -45,6 +46,19 @@ function Menu() {
               <ThermostatIcon />
             </span>
             {i18n.t("pages:weather")}
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            activeClassName="bg-active text-white"
+            exact
+            to={"/theme"}
+            className="h-10 flex gap-x-4 items-center text-sm font-semibold text-link rounded hover:text-white px-4"
+          >
+            <span className="transition-all">
+              <ColorLensIcon />
+            </span>
+            {i18n.t("pages:theme_operations")}
           </NavLink>
         </li>
       </ul>

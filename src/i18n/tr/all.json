@@ -2,7 +2,8 @@
   "pages": {
     "home_page": "Ana Sayfa",
     "to_do_list": "Yapılacaklar Listesi",
-    "weather": "Hava Durumu"
+    "weather": "Hava Durumu",
+    "theme_operations": "Tema İşlemleri"
   },
   "language": {
     "tr": "Türkçe",

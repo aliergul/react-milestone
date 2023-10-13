@@ -25,7 +25,7 @@ const WeatherForecast = ({ data }) => {
 
   return (
     <>
-      <label className="text-2xl font-semibold">
+      <label className="text-2xl font-semibold text-title">
         {i18n.t("forecast_weather:daily")}
       </label>
       <Accordion allowZeroExpanded>
@@ -33,7 +33,7 @@ const WeatherForecast = ({ data }) => {
           <AccordionItem key={index}>
             <AccordionItemHeading>
               <AccordionItemButton>
-                <div className="bg-gray-300 rounded-lg h-10 my-2 flex items-center cursor-pointer text-base p-2">
+                <div className="bg-gray-400 rounded-lg h-10 my-2 flex items-center cursor-pointer text-base p-2">
                   <img
                     alt="weather"
                     className="w-10 h-10"
@@ -53,7 +53,7 @@ const WeatherForecast = ({ data }) => {
               </AccordionItemButton>
             </AccordionItemHeading>
             <AccordionItemPanel>
-              <div className="grid gap-x-4 md:gap-x-6 grid-cols-2 p-2 md:p-4 bg-black">
+              <div className="grid gap-x-4 md:gap-x-6 grid-cols-2 p-2 md:p-4 bg-forecast rounded-lg">
                 <div className="flex items-center h-8 justify-between">
                   <label className="text-gray-300 font-medium">
                     {i18n.t("forecast_weather:pressure")}

@@ -2,12 +2,13 @@
   "pages": {
     "home_page": "Home Page",
     "to_do_list": "To Do List",
-    "weather": "Weather Condition"
+    "weather": "Weather Condition",
+    "theme_operations": "Theme Operations"
   },
   "language": {
     "tr": "Turkish",
     "en": "English",
-    "change": "Language Change"
+    "change": "Language"
   },
   "tooltips": {
     "github": "You can access the source codes of the project and the Git profile of the project owner here.",

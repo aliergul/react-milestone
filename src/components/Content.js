@@ -5,6 +5,7 @@ import { Route } from "react-router-dom";
 import Todo from "../pages/Todo/Todo";
 import Home from "../pages/Home/Home";
 import Weather from "../pages/Weather/Weather";
+import ThemeOperations from "../pages/ThemeOperations/ThemeOperations";
 
 function Content() {
   return (
@@ -22,6 +23,9 @@ function Content() {
           </Route>
           <Route path="/weather">
             <Weather />
+          </Route>
+          <Route path="theme">
+            <ThemeOperations />
           </Route>
         </Switch>
       </div>

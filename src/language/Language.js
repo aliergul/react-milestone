@@ -12,13 +12,13 @@ function Language() {
     window.location.reload(false);
   };
   return (
-    <div className="relative z-10 text-right">
+    <div className="relative mr-4">
       <Menu
         as="div"
         className="inline-block text-left absolute right-0 mt-2 z-50"
       >
         <div>
-          <Menu.Button className="inline-flex w-full justify-center rounded-md bg-active bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+          <Menu.Button className="inline-flex w-full justify-center rounded-md bg-black bg-opacity-30 px-4 py-2 text-sm font-medium text-sidebar hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
             {i18n.t("language:change")}
             <ChevronDownIcon className="w-5" aria-hidden="true" />
           </Menu.Button>{" "}
@@ -39,7 +39,7 @@ function Language() {
                   <button
                     className={`${
                       active && "bg-main "
-                    } text-white group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                    } text-sidebar group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                     onClick={() => changeLanguage("tr")}
                   >
                     <ReactCountryFlag
@@ -57,7 +57,7 @@ function Language() {
                   <button
                     className={`${
                       active && "bg-main "
-                    } text-white group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                    } text-sidebar group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                     onClick={() => changeLanguage("en")}
                   >
                     <ReactCountryFlag

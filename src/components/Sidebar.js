@@ -9,7 +9,7 @@ import i18n from "../i18n/i18n";
 
 function Sidebar() {
   return (
-    <aside className="w-60 pt-6 flex flex-shrink-0 flex-col bg-black">
+    <aside className="w-60 pt-6 flex flex-shrink-0 flex-col bg-sidebar">
       <a href="/" className="flex items-center justify-center mb-7 px-6 gap-4">
         <Tooltip title={i18n.t("tooltips:github")} disableInteractive>
           <a
