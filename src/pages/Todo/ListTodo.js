@@ -9,22 +9,34 @@ const ListTodo = () => {
   const { todoList } = useSelector((state) => state.toDo);
   const dispatch = useDispatch();
   const [modalOpen, setModalOpen] = useState(false);
+  const [selectedId, setSelectedId] = useState(null);
 
-  const handleEditTask = () => {
+  const handleEditTask = (id) => {
+    setSelectedId(id);
     setModalOpen(true);
   };
   const closeModal = () => {
     setModalOpen(false);
   };
+  const selectedTodo = todoList.find((todo) => todo.id === selectedId);
   return (
     <div className="text-black">
-      {modalOpen && <EditModal isOpen={modalOpen} setIsOpen={closeModal} />}
+      {modalOpen && selectedTodo && (
+        <EditModal
+          isOpen={modalOpen}
+          setIsOpen={closeModal}
+          selectedTodo={selectedTodo}
+        />
+      )}
       <ul>
         {todoList.map(({ id, content }) => {
           return (
             <li key={id}>
               <span>{content}</span>
-              <span className="cursor-pointer" onClick={handleEditTask}>
+              <span
+                className="cursor-pointer"
+                onClick={() => handleEditTask(id)}
+              >
                 <EditNoteIcon />
               </span>
               <span onClick={() => dispatch(deleteToDo({ id }))}>
