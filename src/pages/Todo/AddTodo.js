@@ -26,7 +26,7 @@ const AddTodo = () => {
   const { content, contentError } = state;
   return (
     <div className="">
-      <h2>Add Todo</h2>
+      <h2 className="text-black">Add Todo</h2>
       <input
         type="text"
         value={content}
@@ -34,7 +34,7 @@ const AddTodo = () => {
         onChange={handleChange}
         className="text-black"
       />
-      <button type="button" className="" onClick={add}>
+      <button type="button" className="text-black rounded bg-red" onClick={add}>
         Add
       </button>
       {contentError ? console.log({ contentError }) : console.log("All Good")}
