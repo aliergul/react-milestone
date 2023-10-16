@@ -8,6 +8,7 @@ import AddIcon from "@mui/icons-material/Add";
 
 const AddTodo = () => {
   const dispatch = useDispatch();
+
   const [state, setState] = useState({
     content: "",
   });
@@ -46,7 +47,7 @@ const AddTodo = () => {
         color="primary"
         value={content}
         onChange={handleChange}
-        sx={{ width: 1200 }}
+        sx={{ width: 1000 }}
       />
       <div className="ml-auto">
         <IconButton onClick={add}>

@@ -1,7 +1,7 @@
 import { BrowserRouter as Router } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Content from "./components/Content";
-import Bottombar from "./components/Bottombar";
+// import Bottombar from "./components/Bottombar";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
         <Sidebar />
         <Content />
       </div>
-      <Bottombar />
+      {/* <Bottombar /> */}
     </Router>
   );
 }

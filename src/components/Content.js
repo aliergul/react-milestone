@@ -6,6 +6,7 @@ import Todo from "../pages/Todo/Todo";
 import Home from "../pages/Home/Home";
 import Weather from "../pages/Weather/Weather";
 import ThemeOperations from "../pages/ThemeOperations/ThemeOperations";
+import { FilterProvider } from "../pages/Todo/TodoFilter/FilterContext";
 
 function Content() {
   return (
@@ -19,7 +20,9 @@ function Content() {
         </Switch>
         <Switch>
           <Route path="/todo">
-            <Todo />
+            <FilterProvider>
+              <Todo />
+            </FilterProvider>
           </Route>
           <Route path="/weather">
             <Weather />
