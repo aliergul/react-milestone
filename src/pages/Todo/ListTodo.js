@@ -6,6 +6,13 @@ import React, { useState } from "react";
 import DeleteModal from "./TodoModals/DeleteModal";
 import PlaylistAddCheckIcon from "@mui/icons-material/PlaylistAddCheck";
 import { markToDo } from "../../store/todoService/todoSlice";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import { Tooltip } from "@mui/material";
 
 const ListTodo = () => {
   const dispatch = useDispatch();
@@ -49,35 +56,53 @@ const ListTodo = () => {
           selectedTodo={selectedTodo}
         />
       }
-
-      <ul>
-        {todoList.map(({ id, content, status }) => {
-          return (
-            <li key={id}>
-              {status === true ? (
-                <span className="line-through">{content}</span>
-              ) : (
-                <span>{content}</span>
-              )}
-              <span
-                className="cursor-pointer"
-                onClick={() => handleEditTask(id)}
+      <TableContainer component={Paper} sx={{ minWidth: 1200 }}>
+        <Table aria-label="simple table">
+          <TableBody>
+            {todoList.map(({ id, content, status }) => (
+              <TableRow
+                key={id}
+                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                className="hover:bg-main hover:bg-opacity-30"
               >
-                <EditNoteIcon />
-              </span>
-              <span className="cursor-pointer" onClick={() => deleteModal(id)}>
-                <DeleteIcon />
-              </span>
-              <span
-                className="cursor-pointer"
-                onClick={() => handleMarkTodo(id)}
-              >
-                <PlaylistAddCheckIcon />
-              </span>
-            </li>
-          );
-        })}
-      </ul>
+                <TableCell component="th" scope="row">
+                  {status === true ? (
+                    <span className="line-through">{content}</span>
+                  ) : (
+                    <span>{content}</span>
+                  )}
+                </TableCell>
+                <TableCell align="right">
+                  <Tooltip title="Edit">
+                    <span
+                      className="cursor-pointer"
+                      onClick={() => handleEditTask(id)}
+                    >
+                      <EditNoteIcon />
+                    </span>
+                  </Tooltip>
+                  <Tooltip title="Delete">
+                    <span
+                      className="cursor-pointer"
+                      onClick={() => deleteModal(id)}
+                    >
+                      <DeleteIcon />
+                    </span>
+                  </Tooltip>
+                  <Tooltip title="Check">
+                    <span
+                      className="cursor-pointer"
+                      onClick={() => handleMarkTodo(id)}
+                    >
+                      <PlaylistAddCheckIcon />
+                    </span>
+                  </Tooltip>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </div>
   );
 };

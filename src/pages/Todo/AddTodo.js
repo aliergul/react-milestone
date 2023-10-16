@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addToDo } from "../../store/todoService/todoSlice";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import IconButton from "@mui/material/IconButton";
+import AddIcon from "@mui/icons-material/Add";
 
 const AddTodo = () => {
   const dispatch = useDispatch();
@@ -22,20 +26,34 @@ const AddTodo = () => {
     setState({ ...state, content: "" });
   };
   const { content } = state;
+
   return (
-    <div className="">
-      <h2 className="text-black">Add Todo</h2>
-      <input
-        type="text"
-        value={content}
+    <Box
+      component="form"
+      sx={{
+        "& > :not(style)": { m: 1 },
+        display: "flex",
+        alignItems: "center",
+      }}
+      noValidate
+      autoComplete="off"
+    >
+      <TextField
         name="content"
+        id="fullWidth"
+        label="Add something to do..."
+        variant="filled"
+        color="primary"
+        value={content}
         onChange={handleChange}
-        className="text-black"
+        sx={{ width: 1200 }}
       />
-      <button type="button" className="text-black rounded bg-red" onClick={add}>
-        Add
-      </button>
-    </div>
+      <div className="ml-auto">
+        <IconButton onClick={add}>
+          <AddIcon />
+        </IconButton>
+      </div>
+    </Box>
   );
 };
 
