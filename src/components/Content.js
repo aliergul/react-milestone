@@ -7,6 +7,7 @@ import Home from "../pages/Home/Home";
 import Weather from "../pages/Weather/Weather";
 import ThemeOperations from "../pages/ThemeOperations/ThemeOperations";
 import { FilterProvider } from "../pages/Todo/TodoFilter/FilterContext";
+import Exchange from "../pages/Exchange/Exchange";
 
 function Content() {
   return (
@@ -26,6 +27,9 @@ function Content() {
           </Route>
           <Route path="/weather">
             <Weather />
+          </Route>
+          <Route path="/exchange">
+            <Exchange />
           </Route>
           <Route path="theme">
             <ThemeOperations />
