@@ -5,6 +5,7 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import IconButton from "@mui/material/IconButton";
 import AddIcon from "@mui/icons-material/Add";
+import i18n from "../../i18n/i18n";
 
 const AddTodo = () => {
   const dispatch = useDispatch();
@@ -42,7 +43,7 @@ const AddTodo = () => {
       <TextField
         name="content"
         id="fullWidth"
-        label="Add something to do..."
+        label={i18n.t("todo_page:placeholder")}
         variant="filled"
         color="primary"
         value={content}

@@ -15,7 +15,10 @@
     "github": "Projenin kaynak kodlarına ve proje sahibinin Git profiline buradan ulaşabilirsiniz.",
     "linkedin": "Proje sahibinin Linkedin profiline buradan ulaşabilirsiniz.",
     "twitter": "Proje sahibinin X profiline buradan ulaşabilirsiniz.",
-    "instagram": "Proje sahibinin Instagram profiline buradan ulaşabilirsiniz."
+    "instagram": "Proje sahibinin Instagram profiline buradan ulaşabilirsiniz.",
+    "edit": "Düzenle",
+    "delete": "Sil",
+    "mark": "Yapıldı/Yapılmadı Olarak İşaretle"
   },
   "weather_search": "Şehir Ara",
   "current_weather": {
@@ -42,5 +45,12 @@
     "friday": "Cuma",
     "saturday": "Cumartesi",
     "sunday": "Pazar"
+  },
+  "todo_page": {
+    "placeholder": "Yapılacak bir şeyler ekleyin...",
+    "title": "Yapılacaklar Listesi",
+    "all": "Tümü",
+    "completed": "Tamamlanan Görevler",
+    "not_completed": "Tamamlanmamış Görevler"
   }
 }

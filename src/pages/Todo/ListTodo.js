@@ -14,6 +14,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Tooltip } from "@mui/material";
 import { FilterContext } from "./TodoFilter/FilterContext";
+import i18n from "../../i18n/i18n";
 
 const ListTodo = () => {
   const dispatch = useDispatch();
@@ -77,7 +78,7 @@ const ListTodo = () => {
                     )}
                   </TableCell>
                   <TableCell align="right">
-                    <Tooltip title="Edit">
+                    <Tooltip title={i18n.t("tooltips:edit")}>
                       <span
                         className="cursor-pointer"
                         onClick={() => handleEditTask(id)}
@@ -85,7 +86,7 @@ const ListTodo = () => {
                         <EditNoteIcon />
                       </span>
                     </Tooltip>
-                    <Tooltip title="Delete">
+                    <Tooltip title={i18n.t("tooltips:delete")}>
                       <span
                         className="cursor-pointer"
                         onClick={() => deleteModal(id)}
@@ -93,7 +94,7 @@ const ListTodo = () => {
                         <DeleteIcon />
                       </span>
                     </Tooltip>
-                    <Tooltip title="Check">
+                    <Tooltip title={i18n.t("tooltips:mark")}>
                       <span
                         className="cursor-pointer"
                         onClick={() => handleMarkTodo(id)}

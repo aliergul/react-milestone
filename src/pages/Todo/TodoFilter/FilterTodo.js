@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import { FilterContext } from "./FilterContext";
+import i18n from "../../../i18n/i18n";
 
 const FilterTodo = () => {
   const { todoList } = useSelector((state) => state.toDo);
@@ -27,9 +28,11 @@ const FilterTodo = () => {
   return (
     <div style={{ width: "200px" }}>
       <Select value={filter} onChange={handleFilterChange}>
-        <MenuItem value="all">All</MenuItem>
-        <MenuItem value="completed">Completed</MenuItem>
-        <MenuItem value="not_completed">Not Completed</MenuItem>
+        <MenuItem value="all">{i18n.t("todo_page:all")}</MenuItem>
+        <MenuItem value="completed">{i18n.t("todo_page:completed")}</MenuItem>
+        <MenuItem value="not_completed">
+          {i18n.t("todo_page:not_completed")}
+        </MenuItem>
       </Select>
     </div>
   );
