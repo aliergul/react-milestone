@@ -31,7 +31,7 @@ function Content() {
           <Route path="/exchange">
             <Exchange />
           </Route>
-          <Route path="theme">
+          <Route path="/theme">
             <ThemeOperations />
           </Route>
         </Switch>

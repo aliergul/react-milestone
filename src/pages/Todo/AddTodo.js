@@ -6,6 +6,7 @@ import TextField from "@mui/material/TextField";
 import IconButton from "@mui/material/IconButton";
 import AddIcon from "@mui/icons-material/Add";
 import i18n from "../../i18n/i18n";
+import { Tooltip } from "@mui/material";
 
 const AddTodo = () => {
   const dispatch = useDispatch();
@@ -51,9 +52,11 @@ const AddTodo = () => {
         sx={{ width: 1000 }}
       />
       <div className="ml-auto">
-        <IconButton onClick={add}>
-          <AddIcon />
-        </IconButton>
+        <Tooltip title={i18n.t("tooltips:add")}>
+          <IconButton onClick={add}>
+            <AddIcon />
+          </IconButton>
+        </Tooltip>
       </div>
     </Box>
   );

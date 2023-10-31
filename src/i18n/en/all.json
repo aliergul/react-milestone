@@ -18,7 +18,8 @@
     "instagram": "You can access the Instagram profile of the project owner here.",
     "edit": "Edit",
     "delete": "Delete",
-    "mark": "Mark this to do Completed / Not Completed"
+    "mark": "Mark this to do Completed / Not Completed",
+    "add": "Add"
   },
   "weather_search": "Search For City",
   "current_weather": {
