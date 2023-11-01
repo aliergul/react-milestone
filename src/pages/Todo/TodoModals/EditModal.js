@@ -3,6 +3,9 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { useDispatch } from "react-redux";
 import { editToDo } from "../../../store/todoService/todoSlice";
+import { ref, update } from "firebase/database";
+import { db } from "../../../firebase";
+import i18n from "../../../i18n/i18n";
 
 function EditModal({ isOpen, setIsOpen, selectedTodo }) {
   const dispatch = useDispatch();
@@ -15,8 +18,18 @@ function EditModal({ isOpen, setIsOpen, selectedTodo }) {
     if (content === "") {
       setState({ ...state });
     } else {
-      dispatch(editToDo({ id: selectedTodo.id, content: state.content }));
-      setIsOpen(false);
+      const todoRef = ref(db, `todos/${selectedTodo.id}`);
+      const updates = {
+        content: state.content,
+      };
+      update(todoRef, updates)
+        .then(() => {
+          dispatch(editToDo({ id: selectedTodo.id, content: state.content }));
+          setIsOpen(false);
+        })
+        .catch((error) => {
+          console.error("Todo güncelleme hatası:", error);
+        });
     }
   };
   const handleChange = (e) => {
@@ -61,7 +74,7 @@ function EditModal({ isOpen, setIsOpen, selectedTodo }) {
                   as="h3"
                   className="text-lg font-medium leading-6 text-gray-900 flex justify-center"
                 >
-                  Edit Task
+                  {i18n.t("todo_page:edit")}
                 </Dialog.Title>
                 <input
                   name="content"
@@ -75,13 +88,13 @@ function EditModal({ isOpen, setIsOpen, selectedTodo }) {
                     onClick={() => handleEdit()}
                     className="inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
                   >
-                    Edit
+                    {i18n.t("buttons:apply")}
                   </button>
                   <button
                     onClick={() => setIsOpen(false)}
                     className="inline-flex justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 text-sm font-medium text-red-900 hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
                   >
-                    Cancel
+                    {i18n.t("buttons:cancel")}
                   </button>
                 </div>
               </Dialog.Panel>

@@ -19,7 +19,8 @@
     "edit": "Edit",
     "delete": "Delete",
     "mark": "Mark this to do Completed / Not Completed",
-    "add": "Add"
+    "add": "Add",
+    "schedule": "Upload Date: "
   },
   "weather_search": "Search For City",
   "current_weather": {
@@ -52,6 +53,13 @@
     "title": "Add To Do",
     "all": "All",
     "completed": "Completed",
-    "not_completed": "Not Completed"
+    "not_completed": "Not Completed",
+    "sure": "Are you sure to delete task?",
+    "edit": "Edit Task"
+  },
+  "buttons": {
+    "yes": "Yes",
+    "apply": "Apply",
+    "cancel": "Cancel"
   }
 }

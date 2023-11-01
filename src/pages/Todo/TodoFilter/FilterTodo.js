@@ -1,29 +1,47 @@
-import React, { useContext, useEffect } from "react";
-import { useSelector } from "react-redux";
+import React, { useContext, useEffect, useState } from "react";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import { FilterContext } from "./FilterContext";
 import i18n from "../../../i18n/i18n";
+import { db } from "../../../firebase";
+import { ref, onValue } from "firebase/database";
 
 const FilterTodo = () => {
-  const { todoList } = useSelector((state) => state.toDo);
   const { filter, setFilter, setFilteredTodoList } = useContext(FilterContext);
+  const [todoArray, setTodoArray] = useState([]);
+
+  useEffect(() => {
+    const todosRef = ref(db, "todos");
+
+    onValue(todosRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        const updatedTodoArray = Object.keys(data).map((key) => ({
+          id: key,
+          content: data[key].content,
+          status: data[key].status,
+        }));
+        setTodoArray(updatedTodoArray);
+        setFilteredTodoList(updatedTodoArray);
+      }
+    });
+  }, [setFilteredTodoList]);
+
+  useEffect(() => {
+    if (filter === "all") {
+      setFilteredTodoList(todoArray);
+    } else if (filter === "completed") {
+      const filteredList = todoArray.filter((todo) => todo.status === true);
+      setFilteredTodoList(filteredList);
+    } else if (filter === "not_completed") {
+      const filteredList = todoArray.filter((todo) => todo.status === false);
+      setFilteredTodoList(filteredList);
+    }
+  }, [filter, setFilteredTodoList, todoArray]);
 
   const handleFilterChange = (event) => {
     setFilter(event.target.value);
   };
-
-  useEffect(() => {
-    if (filter === "all") {
-      setFilteredTodoList(todoList);
-    } else if (filter === "completed") {
-      const filteredList = todoList.filter((todo) => todo.status === true);
-      setFilteredTodoList(filteredList);
-    } else if (filter === "not_completed") {
-      const filteredList = todoList.filter((todo) => todo.status === false);
-      setFilteredTodoList(filteredList);
-    }
-  }, [filter, todoList, setFilteredTodoList]);
 
   return (
     <div style={{ width: "200px" }}>

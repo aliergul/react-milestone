@@ -19,7 +19,8 @@
     "edit": "Düzenle",
     "delete": "Sil",
     "mark": "Yapıldı/Yapılmadı Olarak İşaretle",
-    "add": "Ekle"
+    "add": "Ekle",
+    "schedule": "Eklenme Tarihi: "
   },
   "weather_search": "Şehir Ara",
   "current_weather": {
@@ -52,6 +53,13 @@
     "title": "Yapılacaklar Listesi",
     "all": "Tümü",
     "completed": "Tamamlanan Görevler",
-    "not_completed": "Tamamlanmamış Görevler"
+    "not_completed": "Tamamlanmamış Görevler",
+    "sure": "İlgili görevi silmek istediğinize emin misiniz?",
+    "edit": "Görevi Düzenle"
+  },
+  "buttons": {
+    "yes": "Evet",
+    "apply": "Onayla",
+    "cancel": "Vazgeç"
   }
 }

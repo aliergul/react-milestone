@@ -8,6 +8,9 @@ import AddIcon from "@mui/icons-material/Add";
 import i18n from "../../i18n/i18n";
 import { Tooltip } from "@mui/material";
 
+import { db } from "../../firebase";
+import { set, ref } from "firebase/database";
+
 const AddTodo = () => {
   const dispatch = useDispatch();
 
@@ -26,6 +29,23 @@ const AddTodo = () => {
       return;
     }
     dispatch(addToDo({ newContent: content }));
+
+    const timestamp = new Date().getTime();
+    const newTodoRef = ref(db, `todos/${timestamp}`);
+    const newTodo = {
+      content: content,
+      status: false,
+    };
+
+    set(newTodoRef, newTodo)
+      .then(() => {
+        dispatch(addToDo({ newContent: content }));
+        setState({ ...state, content: "" });
+      })
+      .catch((error) => {
+        console.error("Veri eklenirken hata oluştu:", error);
+      });
+
     setState({ ...state, content: "" });
   };
   const { content } = state;
