@@ -55,7 +55,8 @@
     "completed": "Tamamlanan Görevler",
     "not_completed": "Tamamlanmamış Görevler",
     "sure": "İlgili görevi silmek istediğinize emin misiniz?",
-    "edit": "Görevi Düzenle"
+    "edit": "Görevi Düzenle",
+    "rows_per_page": "Sayfa Başına Gösterilecek Eleman: "
   },
   "buttons": {
     "yes": "Evet",

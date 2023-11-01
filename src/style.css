@@ -607,6 +607,10 @@ html,
   --tw-backdrop-sepia:  ;
 }
 
+.collapse {
+  visibility: collapse;
+}
+
 .fixed {
   position: fixed;
 }
@@ -771,6 +775,10 @@ html,
 
 .flex-shrink-0 {
   flex-shrink: 0;
+}
+
+.border-collapse {
+  border-collapse: collapse;
 }
 
 .scale-100 {

@@ -55,7 +55,8 @@
     "completed": "Completed",
     "not_completed": "Not Completed",
     "sure": "Are you sure to delete task?",
-    "edit": "Edit Task"
+    "edit": "Edit Task",
+    "rows_per_page": "Rows per page: "
   },
   "buttons": {
     "yes": "Yes",

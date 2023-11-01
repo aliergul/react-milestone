@@ -17,8 +17,8 @@ import { FilterContext } from "./TodoFilter/FilterContext";
 import i18n from "../../i18n/i18n";
 import { db } from "../../firebase";
 import { ref, onValue, update } from "firebase/database";
-import HistoryToggleOffIcon from "@mui/icons-material/HistoryToggleOff";
 import moment from "moment";
+import TablePagination from "@mui/material/TablePagination";
 
 const ListTodo = () => {
   const dispatch = useDispatch();
@@ -26,7 +26,20 @@ const ListTodo = () => {
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
   const [todos, setTodos] = useState([]);
+  const selectedTodo = todos.find((todo) => todo.id === selectedId);
+  const { filteredTodoList } = useContext(FilterContext);
 
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
   const handleEditTask = (id) => {
     setSelectedId(id);
     setEditModalOpen(true);
@@ -41,9 +54,6 @@ const ListTodo = () => {
   const closeDeleteModal = () => {
     setDeleteModalOpen(false);
   };
-
-  const selectedTodo = todos.find((todo) => todo.id === selectedId);
-  const { filteredTodoList } = useContext(FilterContext);
 
   const handleMarkTodo = (id) => {
     const todoRef = ref(db, `todos/${id}`);
@@ -103,7 +113,13 @@ const ListTodo = () => {
       <TableContainer component={Paper} sx={{ minWidth: 1200 }}>
         <Table aria-label="simple table">
           <TableBody>
-            {filteredTodoList.map(({ id, content, status }) => (
+            {(rowsPerPage > 0
+              ? filteredTodoList.slice(
+                  page * rowsPerPage,
+                  page * rowsPerPage + rowsPerPage
+                )
+              : filteredTodoList
+            ).map(({ id, content, status }) => (
               <TableRow
                 key={id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -141,14 +157,22 @@ const ListTodo = () => {
                       <PlaylistAddCheckIcon className="mr-3" />
                     </span>
                   </Tooltip>
-                  <Tooltip
-                    title={`${i18n.t("tooltips:schedule")} ${timestamp(id)}`}
-                  >
-                    <HistoryToggleOffIcon />
-                  </Tooltip>
+                  <span>
+                    {`${i18n.t("tooltips:schedule")} ${timestamp(id)}`}
+                  </span>
                 </TableCell>
               </TableRow>
             ))}
+            <TableRow>
+              <TablePagination
+                count={filteredTodoList.length}
+                page={page}
+                onPageChange={handleChangePage}
+                rowsPerPage={rowsPerPage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+                labelRowsPerPage={i18n.t("todo_page:rows_per_page")}
+              />
+            </TableRow>
           </TableBody>
         </Table>
       </TableContainer>
