@@ -62,5 +62,9 @@
     "yes": "Evet",
     "apply": "Onayla",
     "cancel": "Vazgeç"
+  },
+  "snackbars": {
+    "todo_add": "İşlem Başarılı",
+    "todo_error": "İşlem Başarısız"
   }
 }

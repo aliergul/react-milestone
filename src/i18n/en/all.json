@@ -62,5 +62,9 @@
     "yes": "Yes",
     "apply": "Apply",
     "cancel": "Cancel"
+  },
+  "snackbars": {
+    "todo_add": "Successfull",
+    "todo_error": "Operation Failed"
   }
 }
