@@ -19,6 +19,8 @@ import { db } from "../../firebase";
 import { ref, onValue, update } from "firebase/database";
 import moment from "moment";
 import TablePagination from "@mui/material/TablePagination";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const ListTodo = () => {
   const dispatch = useDispatch();
@@ -28,6 +30,7 @@ const ListTodo = () => {
   const [todos, setTodos] = useState([]);
   const selectedTodo = todos.find((todo) => todo.id === selectedId);
   const { filteredTodoList } = useContext(FilterContext);
+  const [showSkeleton, setShowSkeleton] = useState(true);
 
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -92,6 +95,14 @@ const ListTodo = () => {
         setTodos(todoArray);
       }
     });
+
+    const timeout = setTimeout(() => {
+      setShowSkeleton(false);
+    }, 2000); // 3 saniye sonra Skeleton'ı kapat
+
+    return () => {
+      clearTimeout(timeout);
+    };
   }, []);
 
   return (
@@ -126,53 +137,68 @@ const ListTodo = () => {
                 className="hover:bg-main hover:bg-opacity-30"
               >
                 <TableCell component="th" scope="row">
-                  {status === true ? (
+                  {showSkeleton ? (
+                    <Skeleton />
+                  ) : status === true ? (
                     <span className="line-through">{content}</span>
                   ) : (
                     <span>{content}</span>
                   )}
                 </TableCell>
                 <TableCell align="right">
-                  <Tooltip title={i18n.t("tooltips:edit")}>
-                    <span
-                      className="cursor-pointer"
-                      onClick={() => handleEditTask(id)}
-                    >
-                      <EditNoteIcon className="mr-3" />
-                    </span>
-                  </Tooltip>
-                  <Tooltip title={i18n.t("tooltips:delete")}>
-                    <span
-                      className="cursor-pointer"
-                      onClick={() => deleteModal(id)}
-                    >
-                      <DeleteIcon className="mr-3" />
-                    </span>
-                  </Tooltip>
-                  <Tooltip title={i18n.t("tooltips:mark")}>
-                    <span
-                      className="cursor-pointer"
-                      onClick={() => handleMarkTodo(id)}
-                    >
-                      <PlaylistAddCheckIcon className="mr-3" />
-                    </span>
-                  </Tooltip>
-                  <span>
-                    {`${i18n.t("tooltips:schedule")} ${timestamp(id)}`}
-                  </span>
+                  {showSkeleton ? (
+                    <Skeleton />
+                  ) : (
+                    <>
+                      <Tooltip title={i18n.t("tooltips:edit")}>
+                        <span
+                          className="cursor-pointer"
+                          onClick={() => handleEditTask(id)}
+                        >
+                          <EditNoteIcon className="mr-3" />
+                        </span>
+                      </Tooltip>
+                      <Tooltip title={i18n.t("tooltips:delete")}>
+                        <span
+                          className="cursor-pointer"
+                          onClick={() => deleteModal(id)}
+                        >
+                          <DeleteIcon className="mr-3" />
+                        </span>
+                      </Tooltip>
+                      <Tooltip title={i18n.t("tooltips:mark")}>
+                        <span
+                          className="cursor-pointer"
+                          onClick={() => handleMarkTodo(id)}
+                        >
+                          <PlaylistAddCheckIcon className="mr-3" />
+                        </span>
+                      </Tooltip>
+                      <span>
+                        {`${i18n.t("tooltips:schedule")} ${timestamp(id)}`}
+                      </span>
+                    </>
+                  )}
                 </TableCell>
               </TableRow>
             ))}
-            <TableRow>
-              <TablePagination
-                count={filteredTodoList.length}
-                page={page}
-                onPageChange={handleChangePage}
-                rowsPerPage={rowsPerPage}
-                onRowsPerPageChange={handleChangeRowsPerPage}
-                labelRowsPerPage={i18n.t("todo_page:rows_per_page")}
-              />
-            </TableRow>
+
+            {showSkeleton ? (
+              <Skeleton />
+            ) : (
+              <>
+                <TableRow>
+                  <TablePagination
+                    count={filteredTodoList.length}
+                    page={page}
+                    onPageChange={handleChangePage}
+                    rowsPerPage={rowsPerPage}
+                    onRowsPerPageChange={handleChangeRowsPerPage}
+                    labelRowsPerPage={i18n.t("todo_page:rows_per_page")}
+                  />
+                </TableRow>
+              </>
+            )}
           </TableBody>
         </Table>
       </TableContainer>

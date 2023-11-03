@@ -21,7 +21,7 @@ function Language() {
           <Menu.Button className="inline-flex w-full justify-center rounded-md bg-black bg-opacity-30 px-4 py-2 text-sm font-medium text-sidebar hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
             {i18n.t("language:change")}
             <ChevronDownIcon className="w-5" aria-hidden="true" />
-          </Menu.Button>{" "}
+          </Menu.Button>
         </div>
         <Transition
           as={Fragment}
@@ -33,13 +33,13 @@ function Language() {
           leaveTo="transform opacity-0 scale-95"
         >
           <Menu.Items>
-            <div className="px-1 py-1">
+            <div className="px-1 py-1 ">
               <Menu.Item>
                 {({ active }) => (
                   <button
                     className={`${
                       active && "bg-main "
-                    } text-sidebar group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                    } text-sidebar group flex w-full items-center rounded-md px-2 py-2 text-sm bg-black bg-opacity-10`}
                     onClick={() => changeLanguage("tr")}
                   >
                     <ReactCountryFlag
@@ -57,7 +57,7 @@ function Language() {
                   <button
                     className={`${
                       active && "bg-main "
-                    } text-sidebar group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                    } text-sidebar group flex w-full items-center rounded-md px-2 py-2 text-sm bg-black bg-opacity-10`}
                     onClick={() => changeLanguage("en")}
                   >
                     <ReactCountryFlag
