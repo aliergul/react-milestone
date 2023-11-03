@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import updateArray from "immutability-helper";
 
 export const todoSlice = createSlice({
   name: "toDo",
@@ -8,7 +9,6 @@ export const todoSlice = createSlice({
   reducers: {
     addToDo: (state, action) => {
       let newToDoList = {
-        id: Math.random(),
         content: action.payload.newContent,
         status: false,
       };
@@ -35,7 +35,24 @@ export const todoSlice = createSlice({
       });
       state.todoList = updatedList;
     },
+    moveTodo: (state, action) => {
+      const { dragIndex, hoverIndex } = action.payload;
+      const dragRecord = state.todoList[dragIndex];
+      state.todoList = updateArray(state.todoList, {
+        $splice: [
+          [dragIndex, 1],
+          [hoverIndex, 0, dragRecord],
+        ],
+      });
+      state.todoList.map((item, index) => {
+        item.order = index;
+        return item;
+      });
+      console.log(JSON.parse(JSON.stringify(state.todoList)));
+    },
   },
 });
-export const { addToDo, deleteToDo, editToDo, markToDo } = todoSlice.actions;
+
+export const { setTodo, addToDo, deleteToDo, editToDo, markToDo, moveTodo } =
+  todoSlice.actions;
 export default todoSlice.reducer;

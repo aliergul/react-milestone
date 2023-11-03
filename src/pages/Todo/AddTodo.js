@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addToDo } from "../../store/todoService/todoSlice";
 import Box from "@mui/material/Box";
@@ -11,7 +11,7 @@ import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 
 import { db } from "../../firebase";
-import { set, ref } from "firebase/database";
+import { set, ref, push, onValue } from "firebase/database";
 
 const AddTodo = () => {
   const dispatch = useDispatch();
@@ -20,13 +20,16 @@ const AddTodo = () => {
     content: "",
     snackbarSuccessOpen: false,
     snackbarFailOpen: false,
+    todos: [],
   });
+
   const handleChange = (e) => {
     setState({
       ...state,
       [e.target.name]: e.target.value,
     });
   };
+
   const handleSnackbarClose = () => {
     setState({ ...state, snackbarSuccessOpen: false, snackbarFailOpen: false });
   };
@@ -36,14 +39,17 @@ const AddTodo = () => {
       setState({ ...state });
       return;
     }
-    dispatch(addToDo({ newContent: content }));
 
     const timestamp = new Date().getTime();
-    const newTodoRef = ref(db, `todos/${timestamp}`);
+    const todosRef = ref(db, "todos");
+
     const newTodo = {
       content: content,
       status: false,
+      time: timestamp,
     };
+
+    const newTodoRef = push(todosRef);
 
     set(newTodoRef, newTodo)
       .then(() => {
@@ -54,9 +60,26 @@ const AddTodo = () => {
         setState({ ...state, snackbarFailOpen: true });
         console.error("Veri eklenirken hata oluştu:", error);
       });
-
-    setState({ ...state, content: "" });
   };
+
+  useEffect(() => {
+    const todosRef = ref(db, "todos");
+
+    onValue(todosRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        const todoArray = Object.keys(data).map((key) => ({
+          id: key,
+          content: data[key].content,
+          status: data[key].status,
+        }));
+        setState({
+          todos: todoArray,
+        });
+      }
+    });
+  }, []);
+
   const { content, snackbarSuccessOpen, snackbarFailOpen } = state;
 
   return (
